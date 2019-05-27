@@ -8,10 +8,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="assets/quirkCalc.css">
 
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    
+    <div class="container">
+        <h2 class="text-center pb-4 pt-3">Quirk Calc <i class="fas fa-calculator"> </i> <i
+                class="fas fa-percentage"></i></h2>
+    </div>
+    <div id="calc-container" class="container">
+        <!--TODO: include toggle for light and dark mode-->
+        <div id="tipCalc" class="container">
+            <div id="tipCard" class="card align-items-center border-0">
+            <div id="screen"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-center">Tip Calculator</h3>
+                        <table>
+                            <thead class="funny">
+                                <th><button id="addition" value="+" class="operand btn btn-outline-success">+</button></th>
+                                <th> <button id="subtraction" value="-" class="operand btn btn-outline-success">-</button></th>
+                                <th><button id="multiplication" value="x" class="operand  btn btn-outline-success">x</button></th>
+                                <th><button value="divide" id="division" class="operand  btn btn-outline-success">/</button></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><button class="btn btn-outline-success general-btn" value="7" id="seven">7</button></td>
+                                    <td><button class="btn btn-outline-success general-btn " id="eight" value="8">8</button></td>
+                                    <td><button class="btn btn-outline-success general-btn" value="9" id="nine">9</button></td>
+                                    <td style="background:red;">j</td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn-outline-success general-btn" value="4" id="four">4</button></td>
+                                    <td><button class="btn btn-outline-success general-btn" value="5" id="five">5</butto>
+                                    </td>
+                                    <td><button class="btn btn-outline-success general-btn" value="6" id="six">6</button></td>
+                                    <td style="background:red;"></td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn-outline-success general-btn" value="1" id="one">1</button></td>
+                                    <td><button class="btn btn-outline-success general-btn" value="2" id="two">2</butto>
+                                    </td>
+                                    <td><button class="btn btn-outline-success general-btn" value="3" id="three">3</button></td>
+                                    <td style="background:red;"> <button id="equal" class="btn-outline-success btn general-btn">=</button></td>
+                                </tr>
+                                <tr class="funny">
+                                    <td><button class="btn btn-outline-success general-btn" value="0" id="0">0</button></td>
+                                    <td><button class="btn btn-outline-success" value="." id="0">.</button></td>
+                                    <td><button  class="btn btn-outline-success" id="clear">AC</button></td>
+                                    <td style="background:red;"> <button></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button key="4" id="test" class="btn btn-success">Test</button>
+
+                        <button id="test2">test2</button>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+
 
     <script src="assets/quirkCalc.js"></script>
 </body>

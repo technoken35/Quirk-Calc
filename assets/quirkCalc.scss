@@ -1,0 +1,58 @@
+body{
+    
+background: #EFEFBB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#tipCalc{
+    width: 35%;
+    height: 40%;
+
+}
+
+#tipCard{
+    background-color: #F2F3F8 !important;
+    
+}
+
+p{
+    color: red;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td{
+    text-align: center;
+    width: 30%;
+    height: 30%;
+}
+
+button{
+    width: 100%;
+}
+
+
+#screen{
+    height: 6rem;;
+    width: 100%;
+    background-color: #F2F2F2;
+    opacity: 0.97;
+    border-bottom: 1px black solid;
+}
+
+#screenFont{
+    color: black;
+}
