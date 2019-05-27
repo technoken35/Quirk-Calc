@@ -1,3 +1,11 @@
+/* 
+Media queries for calculator size 
+
+TODO: APPLY BOOTSTRAP BTN STYLING TO TD
+TODO: CONSIDER USING BTN GROUP BS
+TODO: get rid of buttons, use TD
+
+*/
 body {
   background: #EFEFBB;
   /* fallback for old browsers */
@@ -7,9 +15,19 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+#funny {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#calc-container {
+  width: 100%;
+  height: 100%;
+}
+
 #tipCalc {
-  width: 35%;
-  height: 40%;
+  width: 60%;
+  height: 100rem !important;
 }
 
 #tipCard {
@@ -23,36 +41,73 @@ p {
 table {
   border-collapse: collapse;
   border-radius: 5px;
-  padding: 5px;
+  /* padding: 1.5rem !important; */
   width: 100%;
-  height: 100%;
+  height: 25rem;
   table-layout: fixed;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 0.5px solid rgba(166, 166, 166, 0.35);
+  cursor: pointer;
 }
 
-th, td {
+th {
   text-align: center;
-  width: 30%;
-  height: 30%;
+  width: 60%;
+  background: white !important;
 }
 
-button {
-  width: 100%;
+td {
+  text-align: center;
+  width: 60% !important;
+  padding: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+td:hover {
+  transition: 500ms;
+  background: black !important;
+  border-radius: 0.25rem;
+}
+
+tr {
+  margin: none;
+  padding: none;
+  background: no-repeat;
+  background: #3a4050;
+  /* fallback for old browsers */
+}
+
+.btn.btn-outline-success {
+  width: 100% !important;
+  height: 100% !important;
+  margin: none !important;
+  padding: 0% !important;
+  display: block !important;
+  border: none;
+}
+
+.btn.btn-outline-success:hover {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0% !important;
 }
 
 #screen {
-  height: 6rem;
+  height: 8rem;
   width: 100%;
-  background-color: #F2F2F2 !important;
-  opacity: 0.97;
+  background: #6c65f2 !important;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #6c65f2, #9186f5) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #6c65f2, #9186f5) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-bottom: 1px black solid;
 }
 
-#screenFont {
-  color: black;
+#screenText {
+  color: white !important;
 }
 
 /*# sourceMappingURL=quirkCalc.css.map */

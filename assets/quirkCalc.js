@@ -2,11 +2,38 @@ var  screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDO
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM;
 
+/*     
+            ***** BRAINSTORM******
+    
+
+// cycle operands in an object value?
+
+// values will be stored as individual properties in an object
+// use boolean value to keep track of state. Keep track of if the second operand was clicked
+    
+// collect input display until 99999
+
+// Operand is pressed, Store operand press in a variable
+
+// Store display values in a first value object propert
+
+// clear display
+
+// Start input for second input display variable, collect input until next press
+
+// when second operand is pressed Evaluate Current old input  old input display operand  new input display variable
+
+// store second operand pressed in old operands place
+
+// equal sign take old input variable plus new input variable and evalulate then display
+
+
+*/
 
 
 displayOne = "";
 
-screenDOM = document.getElementById("screen");
+screenDOM = document.getElementById("screenText");
 
 btnClick = document.querySelectorAll(".general-btn");
 
@@ -58,6 +85,8 @@ clearDOM.addEventListener("click", function () {
     // clear all other input variables
 });
 
+// use for each? instead of for loop
+
 
 for (i = 0; i < btnClick.length; i++) {
     btnClick[i].addEventListener("click", function () {
@@ -86,20 +115,5 @@ for (i = 0; i < operandDOM.length; i++) {
 
 //console.log(String.fromCharCode(screenDOM.keyCode));
  
-// collect input display until 99999
-
-// Operand is pressed, Store operand press in a variable
-
-// Store display values in a first value variable 
-
-// clear display
-
-// Start input for second input display variable, collect input until next press
-
-// when second operand is pressed Evaluate Current old input  old input display operand  new input display variable
-
-// store second operand pressed in old operands place
-
-// equal sign take old input variable plus new input variable and evalulate then display
 
 
