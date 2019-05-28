@@ -4,8 +4,18 @@ Media queries for calculator size
 TODO: APPLY BOOTSTRAP BTN STYLING TO TD
 TODO: CONSIDER USING BTN GROUP BS
 TODO: get rid of buttons, use TD
+FIXME: border solution
+
 
 */
+.disabled-btn, .operand, .general-btn {
+  text-align: center;
+  width: 60% !important;
+  margin: 0% !important;
+  padding: 0% !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 body {
   background: #EFEFBB;
   /* fallback for old browsers */
@@ -32,6 +42,8 @@ body {
 
 #tipCard {
   background-color: #F2F3F8 !important;
+  border: 0.5px solid rgba(166, 166, 166, 0.35);
+  border-radius: 25px;
 }
 
 p {
@@ -40,14 +52,13 @@ p {
 
 table {
   border-collapse: collapse;
-  border-radius: 5px;
   /* padding: 1.5rem !important; */
-  width: 100%;
+  width: 100% !important;
   height: 25rem;
   table-layout: fixed;
 }
 
-table, th, td {
+table {
   border: 0.5px solid rgba(166, 166, 166, 0.35);
   cursor: pointer;
 }
@@ -61,14 +72,8 @@ th {
 td {
   text-align: center;
   width: 60% !important;
-  padding: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-td:hover {
-  transition: 500ms;
-  background: black !important;
-  border-radius: 0.25rem;
+  margin: 0% !important;
+  padding: 0% !important;
 }
 
 tr {
@@ -108,6 +113,29 @@ tr {
 
 #screenText {
   color: white !important;
+  font-size: 2.5rem;
+}
+
+.general-btn {
+  color: #6cd967;
+}
+
+.general-btn:hover {
+  background: #6cd967 !important;
+  color: white;
+}
+
+.operand {
+  color: #6cd967;
+}
+
+.border-none {
+  border: none !important;
+}
+
+button {
+  height: 100% !important;
+  width: 100% !important;
 }
 
 /*# sourceMappingURL=quirkCalc.css.map */
