@@ -1,15 +1,108 @@
 <!DOCTYPE html>
 <html>
 
+<!--created working branch-->
+
+<!--TODO: REFACTOR HTML STRUCTURE-->
+<!--FIXME: Git rid of table structure include all buttons-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="assets/quirkCalc.css">
 
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    
+    <div class="container">
+        <h2 class="text-center pb-4 pt-3">Quirk Calc <i class="fas fa-calculator"> </i> <i
+                class="fas fa-percentage"></i></h2>
+    </div>
+    <div id="calc-container" class="container">
+        <!--TODO: include toggle for light and dark mode-->
+        <!--TODO: set up event listeners to toggle the active class-->
+        <div id="tipCalc" class="container">
+            <div id="tipCard" class="card align-items-center border-0">
+                <div class="container-fluid" id="screen">
+                    <div class="row justify-content-start">
+                        <div class="col-3">
+                            <button class="btn btn-outline-success active"><i class="fas fa-home"></i></button>
+                        </div>
+
+                        <div class="col-3">
+                            <button class="btn btn-outline-success">Tip</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button class="btn btn-outline-success">BMI</button>
+
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-outline-success">Salary</button>
+
+                        </div>
+
+                    </div>
+                    <div class="row text-center">
+                        <!--TODO: wrap screen text in span so it can be centered-->
+                        <div class="col-12 text-center pt-5" id="screenText">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table>
+                            <thead class="funny">
+                                <th id="addition" value="+" class="operand"> <i class="fas fa-plus"></i></th>
+                                <th id="subtraction" value="-" class="operand"> <i class="fas fa-minus"></i></th>
+                                <th id="multiplication" value="x" class="operand"> <i class="fas fa-times"></i></th>
+                                <th value="/" id="division" class="operand"><i class="fas fa-divide"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td > <button class="general-btn" value="7" id="seven">7</button> </td>
+                                    <td class="general-btn" id="eight" data-value="7"> 8</td>
+                                    <td class="general-btn" value="9" id="nine"> 9</td>
+                                    <td id="clear" class="general-btn">AC</td>
+                                </tr>
+                                <tr>
+                                    <td class="general-btn" value="4" id="four">4</td>
+                                    <td class="general-btn" value="5" id="five">5</td>
+                                    <td class="general-btn" value="6" id="six">6</td>
+                                    <td class="general-btn">.</td>
+                                </tr>
+                                <tr>
+                                    <td class="general-btn" value="1" id="one">1</td>
+                                    <td class=" general-btn" value="2" id="two">2</td>
+                                    <td class=" general-btn" value="3" id="three">3</td>
+                                  <td id="equal" class="general-btn"> <i class="fas fa-equals"></i></td> 
+                                 
+                                </tr>
+                                <tr class="funny">
+                                    <td class=" general-btn" value="0" id="0">0 </td>
+                                    <td  class=" border-none disabled-btn" value="."></td>
+                                    <td class=" border-none disabled-btn"></td>
+                                    <td id="del" class="general-btn"><i class="fas fa-backspace "></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
 
     <script src="assets/quirkCalc.js"></script>
 </body>
