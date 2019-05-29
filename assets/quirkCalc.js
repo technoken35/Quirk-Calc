@@ -68,7 +68,7 @@ for (i = 0; i < btnClick.length; i++) {
 
         //var placeholder= String.fromCharCode( this.keyCode);
 
-        currentINPUT = parseFloat(this.value).toFixed(3);
+        currentINPUT = parseFloat(this.value);
          //  recieves NEW keyCode value on EVERY click
          
          ongoingInput +=currentINPUT;
