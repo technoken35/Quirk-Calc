@@ -5,6 +5,7 @@ var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nine
 /* 
 ! TODO: Selecting individual value buttons may not be neccessay, with array 
 
+test commit
 
 ? Questions
 
