@@ -1,2 +1,3 @@
 # Quirk-Calc
-3 in 1 Calculator including, Tip, BMI, &amp; Income by state after taxes.
+
+This will begin as a general calculations calculator but more features will be added in the future. New features include a BMI & tip calculator.
