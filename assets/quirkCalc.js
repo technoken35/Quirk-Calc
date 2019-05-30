@@ -2,6 +2,14 @@ var screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
+/* 
+! TODO: Selecting individual value buttons may not be neccessay, with array 
+
+
+? Questions
+
+
+*/
 
 displayOne = "";
 
@@ -22,23 +30,6 @@ equalDOM = document.getElementById("equal");
 // assigning values to buttons is better
 additionDOM = document.getElementById("addition");
 
-oneDOM = document.getElementById("one");
-
-twoDOM = document.getElementById("two");
-
-threeDOM = document.getElementById("three");
-
-fourDOM = document.getElementById("four");
-
-fiveDOM = document.getElementById("five");
-
-sixDOM = document.getElementById("six");
-
-sevenDOM = document.getElementById("seven");
-
-eightDOM = document.getElementById("eight");
-
-nineDOM = document.getElementById("nine");
 
 var display = [null, null];
 // use null for intializing empty arrays for num data type
@@ -68,6 +59,7 @@ for (i = 0; i < btnClick.length; i++) {
         ongoingInput += currentINPUT;
 
         display.splice(0, 0, currentINPUT);
+        // * * Splices the array to update the first value so "null" does not appear in display screen
 
         // display[0] += currentINPUT;
 
@@ -151,6 +143,39 @@ decimalDOM.onclick = function () {
 // store second operand pressed in old operands place
 
 // equal sign take old input variable plus new input variable and evalulate then display
+
+
+*/
+
+
+
+
+
+/* 
+
+                                * *SCRAP CODE
+
+oneDOM = document.getElementById("one");
+
+twoDOM = document.getElementById("two");
+
+threeDOM = document.getElementById("three");
+
+fourDOM = document.getElementById("four");
+
+fiveDOM = document.getElementById("five");
+
+sixDOM = document.getElementById("six");
+
+sevenDOM = document.getElementById("seven");
+
+eightDOM = document.getElementById("eight");
+
+nineDOM = document.getElementById("nine");
+
+
+
+
 
 
 */
