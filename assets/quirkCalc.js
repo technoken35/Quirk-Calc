@@ -1,6 +1,6 @@
-var  screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
+var screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
-var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT,ongoingInput;
+var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
 
 displayOne = "";
@@ -13,40 +13,34 @@ operandDOM = document.querySelectorAll(".operand");
 
 clearDOM = document.getElementById("clear");
 
+deleteDOM = document.getElementById("del");
+
+decimalDOM = document.getElementById("decimal-point");
+
 equalDOM = document.getElementById("equal");
 
-// assign keyCodes based on element ID
-additionDOM =document.getElementById("addition");
-additionDOM.keyCode= 61;
+// assigning values to buttons is better
+additionDOM = document.getElementById("addition");
 
-oneDOM=document.getElementById("one");
-oneDOM.keyCode= 49;
+oneDOM = document.getElementById("one");
 
 twoDOM = document.getElementById("two");
-twoDOM.keyCode= 50;
 
 threeDOM = document.getElementById("three");
-threeDOM.keyCode=51;
 
 fourDOM = document.getElementById("four");
-fourDOM.keyCode= 52;
 
 fiveDOM = document.getElementById("five");
-fiveDOM.keyCode=53;
 
 sixDOM = document.getElementById("six");
-sixDOM.keyCode=54;
 
 sevenDOM = document.getElementById("seven");
-//sevenDOM.keyCode=55;
 
 eightDOM = document.getElementById("eight");
-eightDOM.keyCode=56;
 
 nineDOM = document.getElementById("nine");
-nineDOM.keyCode=57;
 
-var display =[null,null];
+var display = [null, null];
 // use null for intializing empty arrays for num data type
 
 
@@ -64,29 +58,29 @@ clearDOM.addEventListener("click", function () {
 for (i = 0; i < btnClick.length; i++) {
     btnClick[i].addEventListener("click", function () {
         // listens to all number buttons by their common general class
-       // var placeholder = String.fromCharCode( this.keyCode);
+        // var placeholder = String.fromCharCode( this.keyCode);
 
         //var placeholder= String.fromCharCode( this.keyCode);
 
-        currentINPUT = parseFloat(this.value).toFixed(3);
-         //  recieves NEW keyCode value on EVERY click
-         
-         ongoingInput +=currentINPUT;
+        currentINPUT = parseFloat(this.value);
+        //  recieves NEW keyCode value on EVERY click
 
-         display.splice(0,0,currentINPUT);
-        
-       // display[0] += currentINPUT;
+        ongoingInput += currentINPUT;
 
-        console.log(typeof(display[0]));
-        
+        display.splice(0, 0, currentINPUT);
 
-            // each new keycode value is turned into the corresponding character value and kept in this var
-            
-            screenDOM.textContent += display[0];
-            // ALL keycode character values are kept in an on going display string called screenDOM
-            // screenDOM= the old screenDOM value + the new character value
-        
-     });
+        // display[0] += currentINPUT;
+
+        console.log(typeof (display[0]));
+
+
+        // each new keycode value is turned into the corresponding character value and kept in this var
+
+        screenDOM.textContent += display[0];
+        // ALL keycode character values are kept in an on going display string called screenDOM
+        // screenDOM= the old screenDOM value + the new character value
+
+    });
 
 
 }
@@ -101,11 +95,36 @@ for (i = 0; i < operandDOM.length; i++) {
 
 }
 
+deleteDOM.onclick = function () {
+    // 1. Collect current display array value
+
+    // 2. Convert value into string
+
+    // 3. Delete last character from value string
+
+    // 4. Convert string back into number
+
+    // 5. Update UI & Display array value
+}
+
+decimalDOM.onclick = function () {
+    // 1. Collect current display array value
+
+    // 2. Turn Current Display array value into a floating point decimal
+
+    // 3. add as many decimal place values as there are click input values
+
+    // 4. cap decimal places at certain spot 
+
+    // 5. return variable to ship back to calculator function 
+}
+
+
 
 
 
 //console.log(String.fromCharCode(screenDOM.keyCode));
- 
+
 
 
 /*
