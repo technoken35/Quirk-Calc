@@ -1,9 +1,15 @@
-var screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
+var  displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
+var operandClicked;
+
 /* 
 ! TODO: Selecting individual value buttons may not be neccessay, with array 
+
+? need a way to let program know there has been two clicks
+
+if arrays are both equal
 
 test commit
 
@@ -11,6 +17,8 @@ test commit
 
 
 */
+
+
 
 displayOne = "";
 
@@ -33,60 +41,9 @@ additionDOM = document.getElementById("addition");
 
 
 var display = [null, null];
+
+var calcScreenTotal =[null];
 // use null for intializing empty arrays for num data type
-
-
-equalDOM.addEventListener("click", function () {
-    // bad practice to use eval, find another function
-    screenDOM.textContent = eval(screenDOM.display.value);
-});
-
-clearDOM.addEventListener("click", function () {
-    screenDOM.textContent = "";
-    // clear all other input variables
-});
-
-
-for (i = 0; i < btnClick.length; i++) {
-    btnClick[i].addEventListener("click", function () {
-        // listens to all number buttons by their common general class
-        // var placeholder = String.fromCharCode( this.keyCode);
-
-        //var placeholder= String.fromCharCode( this.keyCode);
-
-        currentINPUT = parseFloat(this.value);
-        //  recieves NEW keyCode value on EVERY click
-
-        ongoingInput += currentINPUT;
-
-        display.splice(0, 0, currentINPUT);
-        // * * Splices the array to update the first value so "null" does not appear in display screen
-
-        // display[0] += currentINPUT;
-
-        console.log(typeof (display[0]));
-
-
-        // each new keycode value is turned into the corresponding character value and kept in this var
-
-        screenDOM.textContent += display[0];
-        // ALL keycode character values are kept in an on going display string called screenDOM
-        // screenDOM= the old screenDOM value + the new character value
-
-    });
-
-
-}
-
-for (i = 0; i < operandDOM.length; i++) {
-    operandDOM[i].addEventListener("click", function () {
-
-        //operandOne = String.fromCharCode(this.keyCode);
-        //screenDOM.textContent += operandOne;
-        alert("tupac is back");
-    });
-
-}
 
 deleteDOM.onclick = function () {
     // 1. Collect current display array value
@@ -113,70 +70,109 @@ decimalDOM.onclick = function () {
 }
 
 
+equalDOM.addEventListener("click", function () {
+    // if equals is pressed
+
+    // master expression is made up of arrays and operands
+
+    // evaluate master expression
+
+    // Store master expression to a variable
+
+    // Update UI with result 
+
+    // Clear expression string with computed numbers
+
+    // add new value to expression string
+
+
+});
+
+clearDOM.addEventListener("click", function () {
+    screenDOM.textContent = "";
+    // clear all other input variables
+});
+
+
+for (i = 0; i < btnClick.length; i++) {
+    btnClick[i].addEventListener("click", function () {
+        // listens to all number buttons by their common general class
+
+        currentINPUT = parseFloat(this.value);
+        //  recieves NEW value on EVERY click
+
+        ongoingInput += currentINPUT;
+
+        display.splice(0, 0, currentINPUT);
+        // * * Splices the array to update the first value of so "null" does not appear in display screen
+
+        // display[0] += currentINPUT;
+
+        console.log(typeof (display[0]));
+
+        calcScreenTotal += display[0];
+        screenDOM.textContent += display[0];
+        // screenDOM= the old screenDOM value + the new character value
+
+    });
+
+
+}
+
+var barnacles = [];
+
+    for (i=0; i < operandDOM.length; i++) {
+        operandDOM[i].addEventListener("click",function(){
+           
+
+            if (display[0] > 0) {
+                barnacles.push(currentINPUT);
+                console.log(currentINPUT);
+            }
+        });
+    }
+
+
+    
+
+        
+        // on each click before multiple values update the operand variable with appropriate value of each click
+        // if operand matches addition than array[0] + array [1]
+
+        // Cycle to next array[1] value
+
+        // When user clicks another value button Clear Screen Display Variable, Add new value clicked to array [1]
+
+        // Clear UI screen
+
+        // Display new array[1] value to screen
+
+     //second click
+
+        //else if another operand pressed && array [1] > 0 
+
+                // Evaluate expression
+
+                // store ongoing value in array [0]
 
 
 
-//console.log(String.fromCharCode(screenDOM.keyCode));
+                // update display with array [0]
 
+                // store second operand pressed
 
+                // collect screen input value in array [1]
 
-/*
-            ***** BRAINSTORM******
+                // evaluate current expression based on operand
 
+                // clear operand one
 
-// cycle operands in an object value?
+                // Update display variable and UI
 
-// values will be stored as individual properties in an object
-// use boolean value to keep track of state. Keep track of if the second operand was clicked
+                // Clear array [1]
 
-// collect input display until 99999
+                // set array [1] to new input
 
-// Operand is pressed, Store operand press in a variable
+                // run in this mode cycling the operands until equals is pressed
 
-// Store display values in a first value object propert
-
-// clear display
-
-// Start input for second input display variable, collect input until next press
-
-// when second operand is pressed Evaluate Current old input  old input display operand  new input display variable
-
-// store second operand pressed in old operands place
-
-// equal sign take old input variable plus new input variable and evalulate then display
-
-
-*/
-
-
-
-
-
-/* 
-
-                                * *SCRAP CODE
-
-oneDOM = document.getElementById("one");
-
-twoDOM = document.getElementById("two");
-
-threeDOM = document.getElementById("three");
-
-fourDOM = document.getElementById("four");
-
-fiveDOM = document.getElementById("five");
-
-sixDOM = document.getElementById("six");
-
-sevenDOM = document.getElementById("seven");
-
-eightDOM = document.getElementById("eight");
-
-nineDOM = document.getElementById("nine");
-
-
-
-
-
-
-*/
+                // clear both operand & array variable
