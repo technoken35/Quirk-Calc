@@ -95,8 +95,9 @@ for (i = 0; i < btnClick.length; i++) {
 
         currentINPUT = parseFloat(this.value);
         //  recieves NEW value on EVERY click
-
+ 
         ongoingInput += currentINPUT;
+      
 
         display.splice(0, 0, currentINPUT);
         // * * Splices the array to update the first value of so "null" does not appear in display screen
