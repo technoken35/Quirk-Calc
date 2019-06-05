@@ -1,21 +1,16 @@
-var  displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
+
+var displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
-var operandClicked;
+var operandClicked, operand,testTotal;
 
 /* 
 ! TODO: Selecting individual value buttons may not be neccessay, with array 
-
 ? need a way to let program know there has been two clicks
-
 if arrays are both equal
-
 test commit
-
 ? Questions
-
-
 */
 
 
@@ -42,7 +37,7 @@ additionDOM = document.getElementById("addition");
 
 var display = [null, null];
 
-var calcScreenTotal =[null];
+var calcScreenTotal = [null];
 // use null for intializing empty arrays for num data type
 
 deleteDOM.onclick = function () {
@@ -119,23 +114,69 @@ for (i = 0; i < btnClick.length; i++) {
 
 }
 
-var barnacles = [];
+for (i = 0; i < operandDOM.length; i++) {
+    operandDOM[i].addEventListener("click", function () {
 
-    for (i=0; i < operandDOM.length; i++) {
-        operandDOM[i].addEventListener("click",function(){
-           
+        var operandValue= Number(this.value);
+        // collects operand button "value"
+        
 
-            if (display[0] > 0) {
-                barnacles.push(currentINPUT);
-                console.log(currentINPUT);
-            }
-        });
+        // depending on value choose what the operand will be
+        if (operandValue === 0) {
+            operand = "addition";
+            console.log("hi");
+        
+        } else if (operandValue === 1) {
+            operand = "subtraction";
+        } else if (operandValue===2) {
+            operand= "multiplication";
+        } else if(operandValue===3) {
+            operand= "division"
+            console.log("ho");
+        }
+
+        // if else statements cycle operand based on button value
+
+      var testGrandTotal=  calculator[operand]();
+      // we cycle operand variable in calculator object to call the corresponding function
+
+
+        console.log(operand);
+        console.log(testGrandTotal);
+
+    });
+
+}
+
+calculator= {
+    addition () {
+        testTotal=5+5;
+        return testTotal;
+    },
+    
+    subtraction () {
+        testTotal=5-5;
+        return testTotal;
+    },
+
+    division () {
+        testTotal= 10/5;
+        return testTotal;
+    },
+
+    multiplication () {
+        testTotal=5*5;
+        return testTotal;
     }
 
 
-    
 
-        
+}
+
+
+
+
+
         // on each click before multiple values update the operand variable with appropriate value of each click
         // if operand matches addition than array[0] + array [1]
 
