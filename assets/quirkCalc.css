@@ -118,6 +118,7 @@ tr {
 
 .general-btn {
   color: #6cd967;
+  width: 100% !important;
 }
 
 .general-btn:hover {

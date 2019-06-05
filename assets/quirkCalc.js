@@ -1,6 +1,18 @@
-var  screenDOM, displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
-var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT,ongoingInput;
+var displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
+
+var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
+
+var operandClicked, operand,testTotal;
+
+/* 
+! TODO: Selecting individual value buttons may not be neccessay, with array 
+? need a way to let program know there has been two clicks
+if arrays are both equal
+test commit
+? Questions
+*/
+
 
 
 displayOne = "";
@@ -13,46 +25,62 @@ operandDOM = document.querySelectorAll(".operand");
 
 clearDOM = document.getElementById("clear");
 
+deleteDOM = document.getElementById("del");
+
+decimalDOM = document.getElementById("decimal-point");
+
 equalDOM = document.getElementById("equal");
 
-// assign keyCodes based on element ID
-additionDOM =document.getElementById("addition");
-additionDOM.keyCode= 61;
+// assigning values to buttons is better
+additionDOM = document.getElementById("addition");
 
-oneDOM=document.getElementById("one");
-oneDOM.keyCode= 49;
 
-twoDOM = document.getElementById("two");
-twoDOM.keyCode= 50;
+var display = [null, null];
 
-threeDOM = document.getElementById("three");
-threeDOM.keyCode=51;
-
-fourDOM = document.getElementById("four");
-fourDOM.keyCode= 52;
-
-fiveDOM = document.getElementById("five");
-fiveDOM.keyCode=53;
-
-sixDOM = document.getElementById("six");
-sixDOM.keyCode=54;
-
-sevenDOM = document.getElementById("seven");
-//sevenDOM.keyCode=55;
-
-eightDOM = document.getElementById("eight");
-eightDOM.keyCode=56;
-
-nineDOM = document.getElementById("nine");
-nineDOM.keyCode=57;
-
-var display =[null,null];
+var calcScreenTotal = [null];
 // use null for intializing empty arrays for num data type
+
+deleteDOM.onclick = function () {
+    // 1. Collect current display array value
+
+    // 2. Convert value into string
+
+    // 3. Delete last character from value string
+
+    // 4. Convert string back into number
+
+    // 5. Update UI & Display array value
+}
+
+decimalDOM.onclick = function () {
+    // 1. Collect current display array value
+
+    // 2. Turn Current Display array value into a floating point decimal
+
+    // 3. add as many decimal place values as there are click input values
+
+    // 4. cap decimal places at certain spot 
+
+    // 5. return variable to ship back to calculator function 
+}
 
 
 equalDOM.addEventListener("click", function () {
-    // bad practice to use eval, find another function
-    screenDOM.textContent = eval(screenDOM.display.value);
+    // if equals is pressed
+
+    // master expression is made up of arrays and operands
+
+    // evaluate master expression
+
+    // Store master expression to a variable
+
+    // Update UI with result 
+
+    // Clear expression string with computed numbers
+
+    // add new value to expression string
+
+
 });
 
 clearDOM.addEventListener("click", function () {
@@ -64,29 +92,25 @@ clearDOM.addEventListener("click", function () {
 for (i = 0; i < btnClick.length; i++) {
     btnClick[i].addEventListener("click", function () {
         // listens to all number buttons by their common general class
-       // var placeholder = String.fromCharCode( this.keyCode);
-
-        //var placeholder= String.fromCharCode( this.keyCode);
 
         currentINPUT = parseFloat(this.value);
-         //  recieves NEW keyCode value on EVERY click
-         
-         ongoingInput +=currentINPUT;
+        //  recieves NEW value on EVERY click
+ 
+        ongoingInput += currentINPUT;
+      
 
-         display.splice(0,0,currentINPUT);
-        
-       // display[0] += currentINPUT;
+        display.splice(0, 0, currentINPUT);
+        // * * Splices the array to update the first value of so "null" does not appear in display screen
 
-        console.log(typeof(display[0]));
-        
+        // display[0] += currentINPUT;
 
-            // each new keycode value is turned into the corresponding character value and kept in this var
-            
-            screenDOM.textContent += display[0];
-            // ALL keycode character values are kept in an on going display string called screenDOM
-            // screenDOM= the old screenDOM value + the new character value
-        
-     });
+        console.log(typeof (display[0]));
+
+        calcScreenTotal += display[0];
+        screenDOM.textContent += display[0];
+        // screenDOM= the old screenDOM value + the new character value
+
+    });
 
 
 }
@@ -94,44 +118,103 @@ for (i = 0; i < btnClick.length; i++) {
 for (i = 0; i < operandDOM.length; i++) {
     operandDOM[i].addEventListener("click", function () {
 
-        //operandOne = String.fromCharCode(this.keyCode);
-        //screenDOM.textContent += operandOne;
-        alert("tupac is back");
+        var operandValue= Number(this.value);
+        // collects operand button "value"
+        
+
+        // depending on value choose what the operand will be
+        if (operandValue === 0) {
+            operand = "addition";
+            console.log("hi");
+        
+        } else if (operandValue === 1) {
+            operand = "subtraction";
+        } else if (operandValue===2) {
+            operand= "multiplication";
+        } else if(operandValue===3) {
+            operand= "division"
+            console.log("ho");
+        }
+
+        // if else statements cycle operand based on button value
+
+      var testGrandTotal=  calculator[operand]();
+      // we cycle operand variable in calculator object to call the corresponding function
+
+
+        console.log(operand);
+        console.log(testGrandTotal);
+
     });
+
+}
+
+calculator= {
+    addition () {
+        testTotal=5+5;
+        return testTotal;
+    },
+    
+    subtraction () {
+        testTotal=5-5;
+        return testTotal;
+    },
+
+    division () {
+        testTotal= 10/5;
+        return testTotal;
+    },
+
+    multiplication () {
+        testTotal=5*5;
+        return testTotal;
+    }
+
+
 
 }
 
 
 
 
-//console.log(String.fromCharCode(screenDOM.keyCode));
- 
+
+        // on each click before multiple values update the operand variable with appropriate value of each click
+        // if operand matches addition than array[0] + array [1]
+
+        // Cycle to next array[1] value
+
+        // When user clicks another value button Clear Screen Display Variable, Add new value clicked to array [1]
+
+        // Clear UI screen
+
+        // Display new array[1] value to screen
+
+     //second click
+
+        //else if another operand pressed && array [1] > 0 
+
+                // Evaluate expression
+
+                // store ongoing value in array [0]
 
 
-/*
-            ***** BRAINSTORM******
 
+                // update display with array [0]
 
-// cycle operands in an object value?
+                // store second operand pressed
 
-// values will be stored as individual properties in an object
-// use boolean value to keep track of state. Keep track of if the second operand was clicked
+                // collect screen input value in array [1]
 
-// collect input display until 99999
+                // evaluate current expression based on operand
 
-// Operand is pressed, Store operand press in a variable
+                // clear operand one
 
-// Store display values in a first value object propert
+                // Update display variable and UI
 
-// clear display
+                // Clear array [1]
 
-// Start input for second input display variable, collect input until next press
+                // set array [1] to new input
 
-// when second operand is pressed Evaluate Current old input  old input display operand  new input display variable
+                // run in this mode cycling the operands until equals is pressed
 
-// store second operand pressed in old operands place
-
-// equal sign take old input variable plus new input variable and evalulate then display
-
-
-*/
+                // clear both operand & array variable

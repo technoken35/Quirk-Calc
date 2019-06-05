@@ -139,6 +139,7 @@ tr{
 .general-btn{
     @extend %calc-btn;
     color:#6cd967;
+    width: 100% !important;
 }
 
 
