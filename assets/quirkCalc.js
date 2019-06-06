@@ -3,7 +3,7 @@ var displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionD
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
-var operandClicked, operand,testTotal;
+var operandClicked, operand,testTotal,numberClicked;
 
 /* 
 ! TODO: Selecting individual value buttons may not be neccessay, with array 
@@ -35,7 +35,7 @@ equalDOM = document.getElementById("equal");
 additionDOM = document.getElementById("addition");
 
 
-var display = [null, null];
+var displayValue = [null, null];
 
 var calcScreenTotal = [null];
 // use null for intializing empty arrays for num data type
@@ -93,20 +93,44 @@ for (i = 0; i < btnClick.length; i++) {
     btnClick[i].addEventListener("click", function () {
         // listens to all number buttons by their common general class
 
+        numberClicked=true;
+
         currentINPUT = parseFloat(this.value);
         //  recieves NEW value on EVERY click
 
         ongoingInput += currentINPUT;
 
-        display.splice(0, 0, currentINPUT);
+        displayValue.splice(0, 0, currentINPUT);
         // * * Splices the array to update the first value of so "null" does not appear in display screen
 
         // display[0] += currentINPUT;
 
-        console.log(typeof (display[0]));
+        if (operandClicked && displayValue[0] !== null) {
+            // cycle to array [1]
 
-        calcScreenTotal += display[0];
-        screenDOM.textContent += display[0];
+            // clear input
+            alert("hello");
+        } else {
+            // everything else
+
+            // array [0] is current input value
+
+            // place logic before operand click in here
+        }
+
+       
+        console.log(typeof (displayValue[0]));
+
+       // displayValue[0] +=currentINPUT
+        screenDOM.textContent += currentINPUT;
+        // screenDOM is collection on the ongoing user input
+        
+        displayValue[0] = Number(screenDOM.textContent);
+        // displayValue[0] is set to the entire total
+    
+
+        console.log(displayValue[0] + "display[0]");
+        console.log(Number(screenDOM.textContent));
         // screenDOM= the old screenDOM value + the new character value
 
     });
@@ -117,32 +141,54 @@ for (i = 0; i < btnClick.length; i++) {
 for (i = 0; i < operandDOM.length; i++) {
     operandDOM[i].addEventListener("click", function () {
 
+        displayValue[0]= Number(screenDOM.textContent);
+        // collects screen value in array variable once first operand is clicked
+       // console.log(displayValue[0]);
+
         var operandValue= Number(this.value);
         // collects operand button "value"
-        
 
-        // depending on value choose what the operand will be
-        if (operandValue === 0) {
-            operand = "addition";
-            console.log("hi");
+        operandClicked= true;
+        // state variable for operand
+
+      /*  if(operandClicked && displayValue[0] !==null) {
+            / cycle to array[1]
+            alert("hello");
+            displayValue[1] = Number(screenDOM.textContent);
+            console.log(displayValue[1]);
         
-        } else if (operandValue === 1) {
-            operand = "subtraction";
-        } else if (operandValue===2) {
-            operand= "multiplication";
-        } else if(operandValue===3) {
-            operand= "division"
-            console.log("ho");
-        }
+        }  */
+
+
+        if (operandClicked && displayValue[0] !== null && displayValue[1] !==null) {
+            // if both display index values are used and operand clicked execute statement
+
+            // depending on value choose what the operand will be
+            if (operandValue === 0) {
+                operand = "addition";
+                console.log("hi");
+            } else if (operandValue === 1) {
+                operand = "subtraction";
+            } else if (operandValue === 2) {
+                operand = "multiplication";
+            } else if (operandValue === 3) {
+                operand = "division"
+                console.log("ho");
+            }
 
         // if else statements cycle operand based on button value
+       
+        }
+
+        
 
       var testGrandTotal=  calculator[operand]();
       // we cycle operand variable in calculator object to call the corresponding function
-
+      // store total of function in variable
 
         console.log(operand);
         console.log(testGrandTotal);
+    
 
     });
 
@@ -152,6 +198,7 @@ calculator= {
     addition () {
         testTotal=5+5;
         return testTotal;
+        // testTotal = displayValue[0] + displayValue[1]
     },
     
     subtraction () {
@@ -172,6 +219,8 @@ calculator= {
 
 
 }
+
+var testArray= [12,34,90];
 
 
 
