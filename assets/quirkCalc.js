@@ -2,7 +2,7 @@ var displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionD
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
-var operandClicked, operand, testTotal, testing123, testing1234, waitingForSecondOperandPress, operand1, testArray,calculatorRunning;
+var operandClicked, operand, testTotal, testing123, testing1234, waitingForSecondOperandPress, operand1, testArray, calculatorRunning;
 
 operand1 = null;
 
@@ -13,13 +13,11 @@ testArray = [null, null];
 /* 
 ? need a way to let program know there has been two clicks
 if arrays are both equal
-test commit
 ? Questions
+! FIX ME: Add key up & keydown styles to buttons instead of onclick
 
-! FIX ME: Stop the first operand press from triggering the second
-
+TODO: Organize code into functions
 */
-
 
 displayOne = "";
 
@@ -95,6 +93,7 @@ for (i = 0; i < btnClick.length; i++) {
     btnClick[i].addEventListener("click", function () {
         // listens to all number buttons by their common general class
 
+
         currentINPUT = parseFloat(this.value);
         //  recieves NEW value on EVERY click
 
@@ -106,11 +105,11 @@ for (i = 0; i < btnClick.length; i++) {
 
         if (operandClicked && testArray[0] !== null) {
             // instructions after FIRST operand press
-        
+
             testArray[1] = Number(screenDOM.textContent);
             // start collecting screenDOM value in second index
             console.log("you have reached the second level click in the button listener");
-            operand1=operand;
+            operand1 = operand;
             // store first operand pressed for execution
 
         } else {
@@ -127,32 +126,32 @@ for (i = 0; i < btnClick.length; i++) {
 for (i = 0; i < operandDOM.length; i++) {
     // listen to all operand buttons
     operandDOM[i].addEventListener("click", function () {
-            
-            firstOperandPress();
+
+        firstOperandPress();
         // if operand clicked is true & all test arrays have values
         if (operandClicked && testArray[0] !== null && testArray[1] !== null) {
             // call calculator
             console.log("This is the calculator call");
-            var testGrandTotal = calculator[operand1](testArray[0],testArray[1]);
-            console.log("final calculator call"+ " " + "this is the grand total" + " " + testGrandTotal);
+            var testGrandTotal = calculator[operand1](testArray[0], testArray[1]);
+            console.log("final calculator call" + " " + "this is the grand total" + " " + testGrandTotal);
 
             // array[0] now holds grand total
             testArray[0] = testGrandTotal;
             console.log("array[0] after calculation" + testArray[0]);
             // clear operand
-            operand1="";
+            operand1 = "";
             // clear second array value
-            testArray[1]= null;
+            testArray[1] = null;
 
-        // we cycle operand variable in calculator object to call the corresponding function
+            // we cycle operand variable in calculator object to call the corresponding function
 
-        // state variable to clarify that calculator is running
-            calculatorRunning=true;
-        } else if(calculatorRunning && testArray[0] !==null) {
-                testArray[1] = Number(screenDOM.textContent);
-                console.log("after second calculator is running" + " " + testArray[1]);
+            // state variable to clarify that calculator is running
+            calculatorRunning = true;
+        } else if (calculatorRunning && testArray[0] !== null) {
+            // Fires after the first operand click
+            testArray[1] = Number(screenDOM.textContent);
+            console.log("after second calculator is running" + " " + testArray[1]);
         }
-
 
         var operandValue = Number(this.value);
         // collects operand button "value"
@@ -176,7 +175,6 @@ for (i = 0; i < operandDOM.length; i++) {
         }
         // if else statements cycle operand based on button value
 
-
         console.log(operand);
         console.log(testGrandTotal);
 
@@ -186,9 +184,11 @@ for (i = 0; i < operandDOM.length; i++) {
 
 calculator = {
     // current function is called depending on the value of the operand button pressed
-    addition(value1,value2) {
-        testTotal= value1 + value2;
+    addition(value1, value2) {
+        testTotal = value1 + value2;
         console.log(testTotal + " " + " in calculator");
+        // update screen UI in calculator function?
+        screenDOM.textContent= testTotal;
         return testTotal;
         // this works
     },
@@ -200,24 +200,21 @@ calculator = {
         return testTotal;
     },
 
-    division(value1,value2) {
+    division(value1, value2) {
         testTotal = value1 / value2;
         console.log(testTotal + " " + " in calculator");
         return testTotal;
     },
 
-    multiplication(value1,value2) {
+    multiplication(value1, value2) {
         testTotal = value1 * value2;
         console.log(testTotal + " " + " in calculator");
         return testTotal;
     }
 
-
 }
 
 function firstOperandPress() {
-
-    console.log("here is the" + " " + operand + " " + "you requested" + " " + "it will probaly be undefined");
 
     console.log("this is the first operand press");
 
@@ -227,11 +224,9 @@ function firstOperandPress() {
     screenDOM.textContent = "";
     currentINPUT = "";
     //waitingForSecondOperandPress=true;
-
 }
 
-
-function test () {
+function test() {
     alert("test");
     console.log("test");
 }
