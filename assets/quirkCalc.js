@@ -2,13 +2,13 @@ var displayOne, operandDOM, clearDOM, calcButtons, equalDOM, divisionDOM, additi
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
-var operandClicked, operand, testTotal, testing123, testing1234, waitingForSecondOperandPress, operand1, testArray, calculatorRunning;
+var operandClicked, operand, waitingForSecondOperandPress, operand1, inputValues, calculatorRunning;
 
-var testGrandTotal,operandValue;
+var grandTotal, operandValue;
 
 operand1 = null;
 
-testArray = [null, null];
+inputValues = [null, null];
 //test array to store variables instead of variable because it is more dynamic
 
 
@@ -65,7 +65,7 @@ decimalDOM.onclick = function () {
 
 equalDOM.addEventListener("click", function () {
 
-    if (operandClicked && testArray[0] !== null && testArray[1] !== null) {
+    if (operandClicked && inputValues[0] !== null && inputValues[1] !== null) {
         // if the operand was clicked & both input indexes are full
         // call calculator
         callCalculator();
@@ -79,15 +79,15 @@ clearDOM.addEventListener("click", function () {
     // clear all other input variables
     // reset all state variables
 
-    testArray[0]= null;
-    testArray[1]= null;
-    
-    calculatorRunning=false;
-    operandClicked=false;
-    
-    currentINPUT=""; 
-    operand="";
-    operand1="";
+    inputValues[0] = null;
+    inputValues[1] = null;
+
+    calculatorRunning = false;
+    operandClicked = false;
+
+    currentINPUT = "";
+    operand = "";
+    operand1 = "";
 });
 
 for (i = 0; i < calcButtons.length; i++) {
@@ -103,11 +103,11 @@ for (i = 0; i < calcButtons.length; i++) {
         screenDOM.textContent += currentINPUT;
         // screenDOM is constantly appended. Adding the new button pressed to it's total
 
-        if (operandClicked && testArray[0] !== null) {
+        if (operandClicked && inputValues[0] !== null) {
             // after FIRST operand press
 
-            testArray[1] = Number(screenDOM.textContent);
-            // start collecting screenDOM value in second index
+            inputValues[1] = Number(screenDOM.textContent);
+            // start collecting screenDOM value in second input array index
             console.log("you have reached the second level click in the button listener");
             operand1 = operand;
             // store first operand pressed for execution
@@ -117,7 +117,7 @@ for (i = 0; i < calcButtons.length; i++) {
             // if operandClicked is false and the first array[0] is null
             // add screenDOM value to first array[0]
             // program will start here
-            testArray[0] = Number(screenDOM.textContent);
+            inputValues[0] = Number(screenDOM.textContent);
 
         }
 
@@ -130,19 +130,19 @@ for (i = 0; i < operandDOM.length; i++) {
     operandDOM[i].addEventListener("click", function () {
 
         operandClicked = true;
-        
+
         // clear dom on every operand press for new input value
         screenDOM.textContent = "";
         currentINPUT = "";
-        
+
         // if operand is clicked & both input array indexes have values
-        if (operandClicked && testArray[0] !== null && testArray[1] !== null) {
+        if (operandClicked && inputValues[0] !== null && inputValues[1] !== null) {
             // call calculator
             callCalculator();
-        } 
+        }
 
-         operandValue = Number(this.value);
-        // collects operand button "value"
+        operandValue = Number(this.value);
+        // collects operand button "value" on every click
 
         getCalculator();
 
@@ -171,22 +171,22 @@ function getCalculator() {
     // if else statements cycle operand based on button value
 
     console.log(operand);
-    console.log(testGrandTotal);
+    console.log(grandTotal);
 }
 
-function callCalculator () {
+function callCalculator() {
     // we cycle operand variable in calculator object to call the corresponding function
-    
-    testGrandTotal = calculator[operand1](testArray[0], testArray[1]);
-    console.log("final calculator call" + " " + "this is the grand total" + " " + testGrandTotal);
+
+    grandTotal = calculator[operand1](inputValues[0], inputValues[1]);
+    console.log("final calculator call" + " " + "this is the grand total" + " " + grandTotal);
 
     // array[0] now holds running grand total
-    testArray[0] = testGrandTotal;
-    console.log("array[0] after calculation" + testArray[0]);
+    inputValues[0] = grandTotal;
+    console.log("array[0] after calculation" + inputValues[0]);
     // clear operand executed
     operand1 = "";
     // clear second array value for new input
-    testArray[1] = null;
+    inputValues[1] = null;
 
     // state variable to clarify that calculator is running
     calculatorRunning = true;
