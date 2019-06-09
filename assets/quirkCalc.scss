@@ -50,7 +50,7 @@ background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Fi
 
 #tipCard{
     background-color: #F2F3F8 !important;
-     border: 0.5px solid rgba(166, 166, 166, 0.35);
+    /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
   border-radius: 25px;
    
 }
@@ -65,11 +65,12 @@ table {
   width: 100% !important;
   height: 25rem;
   table-layout: fixed;
+  border: none !important;
   
 }
 
 table {
-  border: 0.5px solid rgba(166, 166, 166, 0.35);
+ /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
   cursor: pointer;
 }
 
@@ -86,18 +87,18 @@ td{
     width: 60% !important;
     margin: 0% !important;
     padding: 0% !important;
+    border: none !important;
    
 }
 
 
-   
-    
 
 tr{
     margin: none;
     padding: none;
     background: no-repeat;
     background: #3a4050;  /* fallback for old browsers */
+    border: none !important;
 
 }
 
@@ -136,10 +137,11 @@ tr{
 
 }
 
-.general-btn{
+button.general-btn{
     @extend %calc-btn;
     color:#6cd967;
     width: 100% !important;
+    background: #3a4050 !important;
 }
 
 
@@ -148,16 +150,29 @@ tr{
     color: white;
 }
 
-#equal{
-    @extend %calc-btn;
-    color:#6cd967;
-    width: 100% !important;
 
+#equal,#clear{
+    @extend %calc-btn;
+   background: #3a4050;
+   color: #6cd967;
+    width: 100% !important;
+}
+
+#equal:hover{
+    background: #6cd967 !important;
+    color: white;
+   
+}
+
+#clear:hover{
+    background: #6cd967 !important;
+    color: white;
 }
 
 .operand{
     @extend %calc-btn;
     color: #6cd967;
+  
 }
 
 .border-none{
@@ -172,4 +187,9 @@ tr{
 button{
     height: 100% !important;
     width: 100% !important;
+    border: none;
+}
+
+button:focus{
+    outline: none !important;
 }

@@ -1,4 +1,4 @@
-var displayOne, operandDOM, clearDOM, btnClick, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
+var displayOne, operandDOM, clearDOM, calcButtons, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
 var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
@@ -12,19 +12,14 @@ testArray = [null, null];
 //test array to store variables instead of variable because it is more dynamic
 
 
-/* 
-? need a way to let program know there has been two clicks
-if arrays are both equal
-? Questions
+/*
 ! FIX ME: Add key up & keydown styles to buttons instead of onclick
 TODO: Organize code into functions
 */
 
-displayOne = "";
-
 screenDOM = document.getElementById("screenText");
 
-btnClick = document.querySelectorAll(".general-btn");
+calcButtons = document.querySelectorAll(".general-btn");
 
 operandDOM = document.querySelectorAll(".operand");
 
@@ -69,7 +64,6 @@ decimalDOM.onclick = function () {
 }
 
 equalDOM.addEventListener("click", function () {
-    // if equals is pressed
 
     if (operandClicked && testArray[0] !== null && testArray[1] !== null) {
         // call calculator
@@ -95,9 +89,9 @@ clearDOM.addEventListener("click", function () {
     operand1="";
 });
 
-for (i = 0; i < btnClick.length; i++) {
-    btnClick[i].addEventListener("click", function () {
-        // listens to all number buttons by their common general class
+for (i = 0; i < calcButtons.length; i++) {
+    calcButtons[i].addEventListener("click", function () {
+        // listens to all calc number buttons by their shared general class
 
         currentINPUT = parseFloat(this.value);
         //  recieves NEW value on EVERY click
@@ -120,10 +114,10 @@ for (i = 0; i < btnClick.length; i++) {
         } else {
             // if operandClicked is false and the first array[0] is null
             // add screenDOM value to first array[0]
+            // program will start here
             testArray[0] = Number(screenDOM.textContent);
 
         }
-
 
     });
 
@@ -133,7 +127,12 @@ for (i = 0; i < operandDOM.length; i++) {
     // listen to all operand buttons
     operandDOM[i].addEventListener("click", function () {
 
-        firstOperandPress();
+        operandClicked = true;
+        
+        // clear dom on every operand press for new input value
+        screenDOM.textContent = "";
+        currentINPUT = "";
+        
         // if operand clicked is true & all test arrays have values
         if (operandClicked && testArray[0] !== null && testArray[1] !== null) {
             // call calculator
@@ -178,7 +177,6 @@ for (i = 0; i < operandDOM.length; i++) {
 
 function callCalculator () {
     
-    console.log("This is the calculator call");
     testGrandTotal = calculator[operand1](testArray[0], testArray[1]);
     console.log("final calculator call" + " " + "this is the grand total" + " " + testGrandTotal);
 
@@ -234,12 +232,7 @@ function firstOperandPress() {
 
     console.log("this is the first operand press");
 
-    // operand clicked true
-    operandClicked = true;
-    // clear dom
-    screenDOM.textContent = "";
-    currentINPUT = "";
-    //waitingForSecondOperandPress=true;
+   
 }
 
 function test() {

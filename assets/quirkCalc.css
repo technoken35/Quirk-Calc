@@ -8,7 +8,7 @@ FIXME: border solution
 
 
 */
-.disabled-btn, .operand, #equal, .general-btn {
+.disabled-btn, .operand, #equal, #clear, button.general-btn {
   text-align: center;
   width: 60% !important;
   margin: 0% !important;
@@ -42,7 +42,7 @@ body {
 
 #tipCard {
   background-color: #F2F3F8 !important;
-  border: 0.5px solid rgba(166, 166, 166, 0.35);
+  /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
   border-radius: 25px;
 }
 
@@ -56,10 +56,11 @@ table {
   width: 100% !important;
   height: 25rem;
   table-layout: fixed;
+  border: none !important;
 }
 
 table {
-  border: 0.5px solid rgba(166, 166, 166, 0.35);
+  /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
   cursor: pointer;
 }
 
@@ -74,6 +75,7 @@ td {
   width: 60% !important;
   margin: 0% !important;
   padding: 0% !important;
+  border: none !important;
 }
 
 tr {
@@ -82,6 +84,7 @@ tr {
   background: no-repeat;
   background: #3a4050;
   /* fallback for old browsers */
+  border: none !important;
 }
 
 .btn.btn-outline-success {
@@ -116,9 +119,10 @@ tr {
   font-size: 2.5rem;
 }
 
-.general-btn {
+button.general-btn {
   color: #6cd967;
   width: 100% !important;
+  background: #3a4050 !important;
 }
 
 .general-btn:hover {
@@ -126,9 +130,20 @@ tr {
   color: white;
 }
 
-#equal {
+#equal, #clear {
+  background: #3a4050;
   color: #6cd967;
   width: 100% !important;
+}
+
+#equal:hover {
+  background: #6cd967 !important;
+  color: white;
+}
+
+#clear:hover {
+  background: #6cd967 !important;
+  color: white;
 }
 
 .operand {
@@ -142,6 +157,11 @@ tr {
 button {
   height: 100% !important;
   width: 100% !important;
+  border: none;
+}
+
+button:focus {
+  outline: none !important;
 }
 
 /*# sourceMappingURL=quirkCalc.css.map */
