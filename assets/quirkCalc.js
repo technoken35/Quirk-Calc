@@ -1,8 +1,8 @@
 var displayOne, operandDOM, clearDOM, calcButtons, equalDOM, divisionDOM, additionDOM, subtractionDOM, mutiplicationDOM;
 
-var oneDOM, twoDOM, threeDOM, fourDOM, fiveDOM, sixDOM, sevenDOM, eightDOM, nineDOM, currentINPUT, ongoingInput, deleteDOM, decimalDOM;
+var currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
-var operandClicked, operand, waitingForSecondOperandPress, operand1, inputValues, calculatorRunning;
+var operandClicked, operand, operand1, inputValues, calculatorRunning;
 
 var grandTotal, operandValue;
 
@@ -31,13 +31,7 @@ decimalDOM = document.getElementById("decimal-point");
 
 equalDOM = document.getElementById("equal");
 
-// assigning values to buttons is better
 additionDOM = document.getElementById("addition");
-
-var display = [null, null];
-
-var calcScreenTotal = [null];
-// use null for intializing empty arrays for num data type
 
 deleteDOM.onclick = function () {
     // 1. Collect current display array value
@@ -185,7 +179,7 @@ function callCalculator() {
     console.log("array[0] after calculation" + inputValues[0]);
     // clear operand executed
     operand1 = "";
-    // clear second array value for new input
+    // clear second array value for new user input
     inputValues[1] = null;
 
     // state variable to clarify that calculator is running
