@@ -8,7 +8,7 @@ FIXME: border solution
 
 
 */
-.disabled-btn, .operand, .general-btn {
+.disabled-btn, .operand, #equal, .general-btn {
   text-align: center;
   width: 60% !important;
   margin: 0% !important;
@@ -124,6 +124,11 @@ tr {
 .general-btn:hover {
   background: #6cd967 !important;
   color: white;
+}
+
+#equal {
+  color: #6cd967;
+  width: 100% !important;
 }
 
 .operand {
