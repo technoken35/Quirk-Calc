@@ -18,22 +18,14 @@ FIXME: border solution
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-
-
 body{
 
 background: #EFEFBB;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
-
 }
 
-#funny{
-    width: 100% !important;
-    height: 100% !important;
-}
 
 #calc-container{
     width: 100%;
@@ -55,9 +47,6 @@ background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Fi
    
 }
 
-p{
-    color: red;
-}
 
 table {
   border-collapse: collapse;
@@ -66,12 +55,8 @@ table {
   height: 25rem;
   table-layout: fixed;
   border: none !important;
+   cursor: pointer;
   
-}
-
-table {
- /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
-  cursor: pointer;
 }
 
 
@@ -102,8 +87,6 @@ tr{
 
 }
 
-
-
 .btn.btn-outline-success{
     width: 100% !important;
     height: 100% !important;
@@ -112,7 +95,6 @@ tr{
     display: block !important;
     border: none;
 }
-
 
 .btn.btn-outline-success:hover{
     width: 100% !important;
@@ -133,7 +115,6 @@ tr{
 #screenText{
     color:white !important;
     font-size: 2.5rem;
-    
 
 }
 
@@ -144,14 +125,12 @@ button.general-btn{
     background: #3a4050 !important;
 }
 
-
 .general-btn:hover{
     background: #6cd967 !important;
     color: white;
 }
 
-
-#equal,#clear{
+#equal,#clear,#del{
     @extend %calc-btn;
    background: #3a4050;
    color: #6cd967;
@@ -161,7 +140,11 @@ button.general-btn{
 #equal:hover{
     background: #6cd967 !important;
     color: white;
-   
+}
+
+#del:hover{
+     background: #6cd967 !important;
+    color: white;
 }
 
 #clear:hover{
@@ -169,15 +152,12 @@ button.general-btn{
     color: white;
 }
 
-.operand{
+.operand {
     @extend %calc-btn;
     color: #6cd967;
   
 }
 
-.border-none{
-    border: none !important;
-}
 
 .disabled-btn{
     @extend %calc-btn

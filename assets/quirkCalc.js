@@ -4,7 +4,7 @@ var currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
 var operandClicked, operand, operand1, inputValues, calculatorRunning;
 
-var grandTotal, operandValue;
+var grandTotal, operandValue, del;
 
 operand1 = null;
 
@@ -34,15 +34,15 @@ equalDOM = document.getElementById("equal");
 additionDOM = document.getElementById("addition");
 
 deleteDOM.onclick = function () {
-    // 1. Collect current display array value
 
-    // 2. Convert value into string
+    del = screenDOM.textContent;
+    // collects screen input into variable
 
-    // 3. Delete last character from value string
-
-    // 4. Convert string back into number
-
-    // 5. Update UI & Display array value
+    del = del.substring(0, del.length-1);
+    // removes last character from string
+    
+   screenDOM.textContent= del;
+    // update UI
 }
 
 decimalDOM.onclick = function () {
@@ -95,7 +95,9 @@ for (i = 0; i < calcButtons.length; i++) {
         // keeps ongoing input in variable
 
         screenDOM.textContent += currentINPUT;
+        // screenDOM= screenDOM + currentINPUT
         // screenDOM is constantly appended. Adding the new button pressed to it's total
+        // screenDOM= old input + new input
 
         if (operandClicked && inputValues[0] !== null) {
             // after FIRST operand press
@@ -148,7 +150,6 @@ function getCalculator() {
     // depending on value choose what the operand will be
     if (operandValue === 0) {
         operand = "addition";
-        console.log("hi" + " " + operand);
         return operand;
 
     } else if (operandValue === 1) {
@@ -159,7 +160,6 @@ function getCalculator() {
         return operand;
     } else if (operandValue === 3) {
         operand = "division"
-        console.log("ho");
         return operand;
     }
     // if else statements cycle operand based on button value
@@ -182,8 +182,6 @@ function callCalculator() {
     // clear second array value for new user input
     inputValues[1] = null;
 
-    // state variable to clarify that calculator is running
-    calculatorRunning = true;
 }
 
 calculator = {

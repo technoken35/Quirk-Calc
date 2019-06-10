@@ -8,7 +8,7 @@ FIXME: border solution
 
 
 */
-.disabled-btn, .operand, #equal, #clear, button.general-btn {
+.disabled-btn, .operand, #equal, #clear, #del, button.general-btn {
   text-align: center;
   width: 60% !important;
   margin: 0% !important;
@@ -23,11 +23,6 @@ body {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #D4D3DD, #EFEFBB);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-#funny {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 #calc-container {
@@ -46,10 +41,6 @@ body {
   border-radius: 25px;
 }
 
-p {
-  color: red;
-}
-
 table {
   border-collapse: collapse;
   /* padding: 1.5rem !important; */
@@ -57,10 +48,6 @@ table {
   height: 25rem;
   table-layout: fixed;
   border: none !important;
-}
-
-table {
-  /* border: 0.5px solid rgba(166, 166, 166, 0.35); */
   cursor: pointer;
 }
 
@@ -130,13 +117,18 @@ button.general-btn {
   color: white;
 }
 
-#equal, #clear {
+#equal, #clear, #del {
   background: #3a4050;
   color: #6cd967;
   width: 100% !important;
 }
 
 #equal:hover {
+  background: #6cd967 !important;
+  color: white;
+}
+
+#del:hover {
   background: #6cd967 !important;
   color: white;
 }
@@ -148,10 +140,6 @@ button.general-btn {
 
 .operand {
   color: #6cd967;
-}
-
-.border-none {
-  border: none !important;
 }
 
 button {
