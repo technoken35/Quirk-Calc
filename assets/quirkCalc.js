@@ -4,7 +4,7 @@ var currentINPUT, ongoingInput, deleteDOM, decimalDOM;
 
 var operandClicked, operand, operand1, inputValues, calculatorRunning;
 
-var grandTotal, operandValue, del;
+var grandTotal, operandValue, del,decimal;
 
 operand1 = null;
 
@@ -46,15 +46,16 @@ deleteDOM.onclick = function () {
 }
 
 decimalDOM.onclick = function () {
-    // 1. Collect current display array value
+    
+    decimal= parseFloat(screenDOM.textContent);
+    // collects current input into variable
 
-    // 2. Turn Current Display array value into a floating point decimal
+    decimal= screenDOM.textContent + ".";
+    // adds "decimal point to end" When we parse the string, it convers the "." into a numerical decimal point
 
-    // 3. add as many decimal place values as there are click input values
+    screenDOM.textContent= decimal;
+    // update screen input
 
-    // 4. cap decimal places at certain spot 
-
-    // 5. return variable to ship back to calculator function 
 }
 
 equalDOM.addEventListener("click", function () {
@@ -102,7 +103,7 @@ for (i = 0; i < calcButtons.length; i++) {
         if (operandClicked && inputValues[0] !== null) {
             // after FIRST operand press
 
-            inputValues[1] = Number(screenDOM.textContent);
+            inputValues[1] = parseFloat(screenDOM.textContent);
             // start collecting screenDOM value in second input array index
             console.log("you have reached the second level click in the button listener");
             operand1 = operand;
@@ -113,7 +114,7 @@ for (i = 0; i < calcButtons.length; i++) {
             // if operandClicked is false and the first array[0] is null
             // add screenDOM value to first array[0]
             // program will start here
-            inputValues[0] = Number(screenDOM.textContent);
+            inputValues[0] = parseFloat(screenDOM.textContent);
 
         }
 

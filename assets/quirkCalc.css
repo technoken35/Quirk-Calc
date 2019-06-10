@@ -8,7 +8,7 @@ FIXME: border solution
 
 
 */
-.disabled-btn, .operand, #equal, #clear, #del, button.general-btn {
+.disabled-btn, .operand, #equal, #clear, #del, #decimal-point, button.general-btn {
   text-align: center;
   width: 60% !important;
   margin: 0% !important;
@@ -117,7 +117,7 @@ button.general-btn {
   color: white;
 }
 
-#equal, #clear, #del {
+#equal, #clear, #del, #decimal-point {
   background: #3a4050;
   color: #6cd967;
   width: 100% !important;

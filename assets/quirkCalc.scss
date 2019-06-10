@@ -130,12 +130,13 @@ button.general-btn{
     color: white;
 }
 
-#equal,#clear,#del{
+#equal,#clear,#del,#decimal-point{
     @extend %calc-btn;
    background: #3a4050;
    color: #6cd967;
     width: 100% !important;
 }
+
 
 #equal:hover{
     background: #6cd967 !important;
